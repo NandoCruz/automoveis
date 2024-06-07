@@ -1,0 +1,304 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-color: #0745D9;
+    --bg-second: #EAEAEA;
+    --txt-color: #414141;
+}
+
+body{
+    font-family: Poppins, sans-serif;
+    background-color: var(--bg-second);
+    overflow: hidden;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.header .logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--bg-color);
+    opacity: 0;
+    animation: esquerda 1s ease-in-out forwards;
+    transition: .5s;
+}
+
+.nav ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+.nav a{
+    display:inline-block;
+    text-decoration: none;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--txt-color);
+    transition: .3s;
+    opacity: 0;
+    animation: topo .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.nav a:hover, .nav a.active{
+    font-weight: 800;
+    color: var(--bg-color);
+
+}
+.redes-sociais {
+    display: flex;
+    width: 150px;
+}
+
+.redes-sociais a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: transparent;
+    transform: rotate(45deg);
+    padding: 15px;
+    margin: 10px;
+    transition: .5s;
+    opacity: 0;
+    animation: sociais 2s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.redes-sociais a:hover{
+    border: 2px solid var(--bg-second);
+}
+
+.redes-sociais a i{
+    font-size: 24px;
+    color: var(--bg-second);
+    transform: rotate(-45deg);
+}
+
+.main{
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.txt-container{
+    width: 700px;
+    height: 100vh;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.txt-container h1{
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--txt-color);
+    opacity: 0;
+    animation: base 2s ease-in-out forwards;
+    transition: .5s;
+    
+}
+
+.txt-container h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--bg-color);
+    opacity: 0;
+    animation: esquerda 2s ease-in-out forwards;
+    transition: .5s;
+}
+
+.txt-container p{
+    font-size: 18px;
+    color: var(--txt-color);
+    margin: 10px 0 30px 0;
+    opacity: 0;
+    animation: direita 2s ease-in-out forwards;
+    transition: .5s;
+}
+
+.txt-container .btn-explorar{
+    font-size: 18px;
+    font-weight: 600;
+    width: 200px;
+    height: 50px;
+    border: 2px solid var(--bg-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    color: var(--bg-second);
+    transition: .5s;
+    opacity: 0;
+    animation: base 2s ease-in-out forwards;
+    transition: .5s;
+}
+
+.txt-container .btn-explorar:hover{
+    color: var(--bg-color);
+    background-color: var(--bg-second);
+    box-shadow: 0 0 10px var(--bg-color);
+}
+
+.img-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+}
+
+.img-container .img-carro{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 200px;
+    left: 10px;
+    transform: rotate(45deg);
+    border: 20px solid var(--bg-color);
+    background-color: var(--bg-second);
+    box-shadow: -5px 5px 10px rgba(0,0,0,.5);
+    opacity: 0;
+    animation: zoomCarro 2s ease-in-out forwards;
+    transition: .5s;
+}
+
+.img-container .img-carro img{
+    position: absolute;
+    top: 100px;
+    left: -250px;
+    width: 750px;
+    height: 450px;
+    transform: rotate(-45deg);
+    opacity: 0;
+    animation: carro 2s ease-in-out forwards;
+    transition: .5s;
+    
+}
+
+.main .img-carro1{
+    position: relative;
+    top: -200px;
+    left: 450px;
+    width: 700px;
+    height: 700px;
+    background-color: var(--bg-color);
+    transform: rotate(45deg);
+    z-index: -1;
+    opacity: 0;
+    animation: imgCarro 2s ease-in-out forwards;
+    transition: .5s;
+}
+
+/* KEYFRAMES ANIMAÇÃO */
+@keyframes esquerda {
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes topo {
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes sociais {
+    0%{
+        transform: translateX(100px) rotate(45deg);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+@keyframes direita {
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes base {
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomCarro {
+    0%{
+        transform: scale(1.1) rotate(45deg);
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+@keyframes carro {
+    0%{
+        transform: translate(300px, -300px) scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translate(0, 0) scale(1) rotate(-45deg);
+        opacity: 1;
+    }
+}
+
+@keyframes imgCarro {
+    0%{
+        transform: translateX(100px) rotate(45deg);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0) rotate(45deg);
+        opacity: 1;
+    }
+}
